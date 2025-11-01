@@ -19,6 +19,7 @@ public class Move : MonoBehaviour
 
     private Vector3 targetPosition;
     private bool isMoving = false;
+    private const int MAX_DISTANCE = 50;
 
     private readonly Dictionary<KeyCode, Vector2> _inputMap = new()
     {
@@ -71,7 +72,7 @@ public class Move : MonoBehaviour
         Vector3Int dir = Vector3Int.RoundToInt(direction);
         Vector3Int cell = obstacleTilemap.WorldToCell(transform.position);
 
-        for (int i = 0; i < 50; i++)
+        for (int i = 0; i < MAX_DISTANCE; i++)
         {
             var next = cell + dir;
             if (obstacleTilemap.GetTile(next) != null) break;
