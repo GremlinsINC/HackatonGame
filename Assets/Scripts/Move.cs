@@ -9,7 +9,6 @@ public class Move : MonoBehaviour
     public Tilemap obstacleTilemap;
     
     [Header("Movement Settings")]
-    public float moveSpeed = 5f;
     public float moveDuration = 0.5f;
     public LayerMask obstacleLayer;
     public Easing.Type easingType = Easing.Type.Linear;
@@ -70,12 +69,18 @@ public class Move : MonoBehaviour
     Vector3 FindTargetPosition(Vector3 direction)
     {
         Vector3Int dir = Vector3Int.RoundToInt(direction);
-        Vector3Int cell = obstacleTilemap.WorldToCell(transform.position);
+        Vector3 start = transform.position;
+        Vector3Int cell = obstacleTilemap.WorldToCell(start);
 
         for (int i = 0; i < MAX_DISTANCE; i++)
         {
             var next = cell + dir;
-            if (obstacleTilemap.GetTile(next) != null) break;
+
+            Vector3 worldPos = obstacleTilemap.GetCellCenterWorld(next);
+            Collider2D collider = Physics2D.OverlapPoint(worldPos);
+            if (collider != null && !collider.isTrigger)
+                break;
+
             cell = next;
         }
 
