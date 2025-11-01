@@ -19,7 +19,6 @@ public class Move : MonoBehaviour
 
     private Vector3 targetPosition;
     private bool isMoving = false;
-    private Grid grid;
 
     private readonly Dictionary<KeyCode, Vector2> _inputMap = new()
     {
@@ -31,10 +30,6 @@ public class Move : MonoBehaviour
 
     void Start()
     {
-        if (obstacleTilemap != null)
-        {
-            grid = obstacleTilemap.layoutGrid;
-        }
         currentCell = obstacleTilemap.WorldToCell(transform.position);
     }
 
