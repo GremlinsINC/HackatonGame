@@ -47,6 +47,8 @@ public class Move : MonoBehaviour
     {
         if (isMoving)
             return;
+        else if(moveCoroutine != null)
+            StopCoroutine(moveCoroutine);
 
         foreach (var pair in _inputMap)
         {
