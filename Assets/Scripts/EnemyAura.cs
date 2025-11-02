@@ -5,13 +5,16 @@ using System.Collections;
 [RequireComponent(typeof(Collider2D))]
 public class EnemyAura : MonoBehaviour
 {
-    IReadOnlyList<GameObject> furnitures;
+    List<GameObject> furnitures = new List<GameObject>();
 
     public float moveDelay = 1f;
+    public string[] furnitureGroups;
 
     void Start()
     {
-        furnitures = SceneCacheManager.Instance.GetGroup("Tables");
+        foreach(var _group in furnitureGroups){
+            furnitures.AddRange(SceneCacheManager.Instance.GetGroup(_group));
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)

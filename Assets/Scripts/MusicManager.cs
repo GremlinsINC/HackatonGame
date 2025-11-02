@@ -6,13 +6,13 @@ public class MusicManager : MonoBehaviour
     public static MusicManager Instance { get; private set; }
 
     [Header("Sound settings")]
-    public AudioSource playerSource;
-    public AudioSource enemySource;
     public float maxDistance = 10f;
 
     [Header("Object refs")]
     public PlayerInventory player;
     public List<Enemy> enemies = new();
+
+    private AudioSource playerSource;
 
     private void Awake()
     {
@@ -41,13 +41,16 @@ public class MusicManager : MonoBehaviour
         {
             float dist = Vector3.Distance(player.Transform.position, enemy.Transform.position);
             float volume = Mathf.Clamp01(1f - dist / maxDistance);
-            UpdateEnemyVolume(enemy, volume);
+            if(!UiController.isPaused) UpdateEnemyVolume(enemy, volume);
         }
     }
 
-    private void OnPlayerCollectedItem(ItemData item)
+    private void OnPlayerCollectedItem()
     {
-        PlayMusicLayer(item.music);
+        if(playerSource == null)
+            playerSource = player.gameObject.GetComponent<AudioSource>();
+
+        PlayMusicLayer(player.Music);
     }
 
     private void PlayMusicLayer(Music music)
@@ -66,6 +69,7 @@ public class MusicManager : MonoBehaviour
 
     private void UpdateEnemyVolume(Enemy enemy, float volume)
     {
+        var enemySource = enemy.gameObject.GetComponent<AudioSource>();
         if (enemySource.clip != enemy.Music.layers[0])
         {
             enemySource.clip = enemy.Music.layers[0];

@@ -32,8 +32,10 @@ public class FurnitureMover : MonoBehaviour
 
     public bool TryRandomMove()
     {
+
         if (isMoving)
             return false;
+
 
         Vector3Int[] directions =
         {

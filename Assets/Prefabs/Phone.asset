@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f539449abafa8f41abd16c6c55064757, type: 3}
+  m_Name: Phone
+  m_EditorClassIdentifier: 
+  itemName: Phone
+  icon: {fileID: 9099878647056640332, guid: bc805fcc1ceb54e25bf92e0a0b126911, type: 3}
+  music:
+    instrumentName: Phone
+    layers:
+    - {fileID: 8300000, guid: 33b9321efaec2632bba06aa073c12a74, type: 3}
+    - {fileID: 8300000, guid: 3fde5aabebb578f87ab6e45bd1a9a52e, type: 3}
+    - {fileID: 8300000, guid: 0d935077526cae2cc8a9b3404e267823, type: 3}
+    volume: 1

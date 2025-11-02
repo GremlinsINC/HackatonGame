@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f539449abafa8f41abd16c6c55064757, type: 3}
+  m_Name: Pen
+  m_EditorClassIdentifier: 
+  itemName: Pen
+  icon: {fileID: 7177831760212934264, guid: 5c7befe7965b9ff21b5840aa67fde374, type: 3}
+  music:
+    instrumentName: Drums
+    layers:
+    - {fileID: 8300000, guid: 7585d0d48376ecf97b0338602632323a, type: 3}
+    - {fileID: 8300000, guid: 1b81bc487b850d8629ddfc77af8dd4dc, type: 3}
+    - {fileID: 8300000, guid: 27f5f911618a06bf5afdc42fed345615, type: 3}
+    volume: 1
